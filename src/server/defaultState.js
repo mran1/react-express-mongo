@@ -20,28 +20,35 @@ export const defaultState = {
             owner:"U1"
         },
         {
-            name:"To Play",
+            name:"Doing",
             id:"G2",
             owner:"U3"
         },
         {
-            name:"To Fart",
+            name:"Done",
             id:"G3",
             owner:"U2"
         }
     ],
     tasks:[{
-        name:"Do tests",
+        name:"play cricket",
         id:"T1",
         owner:"U1",
         group:"G1",
         isComplete:false
     },
     {
-        name:"Do Code",
+        name:"wash clothes",
         id:"T2",
         owner:"U1",
         group:"G1",
+        isComplete:false
+    },
+    {
+        name:"Coding",
+        id:"T3",
+        owner:"U2",
+        group:"G2",
         isComplete:false
     },
     {

@@ -15,7 +15,8 @@ module.exports = {
         historyApiFallback: true
     },
     module:{
-        rules:[{
+        rules:[
+        {
             test: /\.jsx?/,
             loader:'babel-loader'
         }]
