@@ -4,7 +4,7 @@ import {TaskListsConnector} from './TaskLists'
 export const Dashboard = ({groups}) =>(
     <div>
         <h2>Dashboard</h2>
-        {groups.map((group) => (<TaskListsConnector id={group.id} name={group.name} /> ))}
+        {groups.map((group) => (<div key={group.id}><TaskListsConnector id={group.id} name={group.name} /></div> ))}
     </div>
 )
 function mapStateToProps(state){
