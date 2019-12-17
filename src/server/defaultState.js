@@ -53,10 +53,10 @@ export const defaultState = {
     },
     {
         name:"Do Exercise",
-        id:"T3",
+        id:"T4",
         owner:"U2",
         group:"G3",
-        isComplete:false
+        isComplete:true
     }],
     comments:[{
         owner:"U1",

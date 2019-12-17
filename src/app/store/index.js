@@ -16,7 +16,10 @@ export const store=createStore(
                     owner: action.ownerId,
                     group: action.groupId,
                     isComplete: false
-                }]
+                }];
+                case mutations.GROUP_CHANGE : return tasks.map((task) => {
+                return (task.id === action.id) ? {...task,group:action.groupId} : task;
+                })
             }
             return tasks; 
         },
