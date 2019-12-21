@@ -2,15 +2,15 @@ export const defaultState = {
     users:[
         {
             id:"U1",
-            name:"Dev"
+            name:"madhu"
         },
         {
             id:"U2",
-            name:"Honey"
+            name:"chandu"
         },
         {
             id:"U3",
-            name:"Madhu"
+            name:"chethu"
         }
     ],
     groups:[
@@ -40,21 +40,21 @@ export const defaultState = {
     {
         name:"wash clothes",
         id:"T2",
-        owner:"U1",
+        owner:"U2",
         group:"G1",
         isComplete:false
     },
     {
         name:"Coding",
         id:"T3",
-        owner:"U2",
+        owner:"U3",
         group:"G2",
         isComplete:false
     },
     {
         name:"Do Exercise",
         id:"T4",
-        owner:"U2",
+        owner:"U1",
         group:"G3",
         isComplete:true
     }],
@@ -65,9 +65,15 @@ export const defaultState = {
         content:"Great Work!"
     },
     {
-        owner:"U1",
+        owner:"U2",
         id:"C1",
-        task:"T1",
+        task:"T2",
         content:"Not goood Work!"
+    },
+    {
+        owner:"U3",
+        id:"C1",
+        task:"T3",
+        content:"Not bad Work!"
     }]
 }
