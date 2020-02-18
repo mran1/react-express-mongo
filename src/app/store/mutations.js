@@ -3,6 +3,7 @@ export const CREATE_TASK = 'CREATE_TASK';
 export const GROUP_CHANGE = 'GROUP_CHANGE';
 export const TASK_NAME_CHANGE = 'TASK_NAME_CHANGE';
 export const TASK_INDICATOR_CHANGE = 'TASK_INDICATOR_CHANGE';
+export const AUTHENTICATE_USER = 'AUTHENTICATE_USER';
 
 export const requestTaskCreation = (groupId) =>({
     type:REQUEST_TASK_CREATION,
@@ -37,5 +38,13 @@ export const taskIndicatorChange = (indicator,id) =>{
         type:TASK_INDICATOR_CHANGE,
         indicator,
         id
+    }
+}
+
+export const authenticateUser = (userName, password) =>{
+    return{
+        AUTHENTICATE_USER,
+        userName,
+        password
     }
 }
