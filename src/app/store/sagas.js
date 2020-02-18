@@ -34,3 +34,13 @@ export function* taskModificationSaga() {
         console.log("resp is ", resp);
     }
 }
+
+export function* userAuthentication(){
+    while(true){
+        let {userName, password} = yield take(mutations.AUTHENTICATE_USER);
+        let resp = yield axios.post(url +"/authenticate",{userName,password});
+        if(resp){
+            
+        }
+    }
+}
