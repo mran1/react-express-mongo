@@ -3,6 +3,7 @@ import cors from 'cors';
 import bodyParser from 'body-parser';
 import {connectDB}  from './connect-db';
 import './initialize-db';
+import {authenticate} from './authenticate';
 let port = 7777;
 let app = express();
 app.listen(port, console.log("LISTENING ON PORT",port));
@@ -16,6 +17,7 @@ app.use(
     bodyParser.urlencoded({extended:true}),
     bodyParser.json()
 )
+authenticate(app);
 export const addNewTask = async task =>{
     let db = await connectDB();
     let collection =  db.collection("tasks");
@@ -50,3 +52,17 @@ app.post("/tasks/update",async (req,res) => {
     res.status(200).send();
 
 })
+
+// app.post("/authenticate", async (req, res) => {
+//     let db = await connectDB();
+//     let {userName,password} = req.body;
+//     let collection =  db.collection("users");
+//     let authenticate = false;
+//     for(let colName in collection){
+//         if(colName.name === userName){
+//             authenticate = true;
+//             break;
+//         } 
+//     }
+//     res.status(200).send({authenticate})
+// })

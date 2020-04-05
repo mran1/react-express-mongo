@@ -8,11 +8,19 @@ import * as mutations from './mutations';
 const sagaMiddleware = createSagaMiddleware();
 export const store=createStore(
     combineReducers({
-        session(session = defaultState.session || {}){
-            return session;
+        session(userSession = defaultState.session || {}, action){
+            const {type, authenticate} = action;
+            switch(type){
+                case mutations.SET_STATE : return {...userSession, authenticate:action.state.session.authenticate}
+                case mutations.REQUEST_AUTHENTICATE_USER : return {...userSession, authenticate:mutations.AUTHENTICATING};
+                case mutations.PROCESS_AUTHENTICATE_USER : return {...userSession, authenticate}
+                default : return userSession;
+            }
+            
         },
-        tasks(tasks = defaultState.tasks, action){
+        tasks(tasks = [], action){
             switch (action.type) {
+                case mutations.SET_STATE : return action.state.tasks
                 case mutations.CREATE_TASK: return [...tasks, {
                     name: "jolly play",
                     id: action.taskId,
@@ -36,11 +44,17 @@ export const store=createStore(
             return comments;
 
         },
-        users(users=defaultState.users,action){
+        users(users={},action){
+            switch(action.type){
+                case mutations.SET_STATE : return {...users, id:action.state.session.id}
+            }
             return users;
         },
         groups(groups=defaultState.groups,action){
-            return groups;
+            switch(action.type){
+                // case mutations.SET_STATE : return action.state.groups
+                default : return groups
+            }
         }
     }), applyMiddleware(createLogger, sagaMiddleware)
 )

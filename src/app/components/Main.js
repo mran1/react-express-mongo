@@ -11,13 +11,12 @@ import {LoginConnector} from './Login';
 
 const RouteGuard = Component => ({match}) =>{
     console.log("ROUTE GUARD", match);
-    if (!store.getState().session.authenticated) {
+    if (!store.getState().session.authenticate) {
         return <Redirect to="/" />
 
     } else{
         return <Component match={match} />
     }
-    
 }
 export const Main = () =>(
     <Router history={history}>
